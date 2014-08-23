@@ -1,7 +1,7 @@
 //
 //A RESTful style web-services framework for the Go language. </br>
-//Creating services in Go is straight forward, GoRest? takes this a step further by adding a layer that 
-//makes tedious tasks much more automated and avoids regular pitfalls. <br/> 
+//Creating services in Go is straight forward, GoRest? takes this a step further by adding a layer that
+//makes tedious tasks much more automated and avoids regular pitfalls. <br/>
 //This gives you the opportunity to focus more on the task at hand... minor low-level http handling.<br/>
 //
 //
@@ -14,7 +14,7 @@
 //	)
 //	func main() {
 //	    gorest.RegisterService(new(HelloService)) //Register our service
-//	    http.Handle("/",gorest.Handle())    
+//	    http.Handle("/",gorest.Handle())
 // 	   http.ListenAndServe(":8787",nil)
 //	}
 //

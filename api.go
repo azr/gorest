@@ -36,7 +36,7 @@ const (
 	XSXRF_PARAM_NAME  = "xsrft"
 )
 
-//Used to declare a new service. 
+//Used to declare a new service.
 //See code example below:
 //
 //
@@ -62,13 +62,13 @@ type RestService struct {
 //
 type EndPoint bool
 
-//Returns the ResponseBuilder associated with the current Context and Request. 
+//Returns the ResponseBuilder associated with the current Context and Request.
 //This can be called multiple times within a service method, the same instance will be returned.
 func (serv RestService) RB() *ResponseBuilder {
 	return serv.ResponseBuilder()
 }
 
-//Returns the ResponseBuilder associated with the current Context and Request. 
+//Returns the ResponseBuilder associated with the current Context and Request.
 //This can be called multiple times within a service method, the same instance will be returned.
 func (serv RestService) ResponseBuilder() *ResponseBuilder {
 	if serv.rb == nil {
@@ -112,7 +112,7 @@ type ResponseBuilder struct {
 }
 
 //Returns the "xsrftoken" token associated with the current request and hence session.
-//This token is either passed vi a URL query parameter "xsrft=1234567" or via a cookie with the name "X-Xsrf-Cookie", 
+//This token is either passed vi a URL query parameter "xsrft=1234567" or via a cookie with the name "X-Xsrf-Cookie",
 //all depending on how your Authoriser is set up.
 func (this *ResponseBuilder) SessionToken() string {
 	return this.ctx.xsrftoken
@@ -126,7 +126,7 @@ func (this *ResponseBuilder) SetSessionToken(token string, path string, expires 
 	http.SetCookie(this.ctx.writer, &http.Cookie{Name: XSXRF_COOKIE_NAME, Value: token, Path: path, Expires: expires})
 }
 
-//This cleares the "xsrftoken" token associated with the current request and hence session. 
+//This cleares the "xsrftoken" token associated with the current request and hence session.
 //Calling this will unlink the current session, making it un-addressable/invalid. Therefore if maintaining a session store
 //you may want to evict/destroy the session there.
 func (this *ResponseBuilder) RemoveSessionToken(path string) {
@@ -317,7 +317,7 @@ func (this *ResponseBuilder) ETag(tag string) *ResponseBuilder {
 	return this
 }
 
-//Add an "Allow" field to the response header. 
+//Add an "Allow" field to the response header.
 func (this *ResponseBuilder) Allow(tag string) *ResponseBuilder {
 	this.writer().Header().Add("Allow", tag)
 	return this
@@ -342,7 +342,7 @@ func (this *ResponseBuilder) SetHeader(key string, value string) *ResponseBuilde
 //	rb.AddHeader("Access-Control-Allow-Headers","X-HTTP-Method-Override")
 //	rb.AddHeader("Access-Control-Allow-Headers","X-Xsrf-Cookie")
 //	rb.AddHeader("Access-Control-Expose-Headers","X-Xsrf-Cookie")
-//		
+//
 func (this *ResponseBuilder) AddHeader(key string, value string) *ResponseBuilder {
 	this.writer().Header().Add(key, value)
 	return this

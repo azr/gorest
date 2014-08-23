@@ -22,7 +22,7 @@ A full workin example is provided with the sources.
 ```go
 func main(){
     gorest.RegisterService(new(OrderService))
-    http.Handle("/",gorest.Handle())    
+    http.Handle("/",gorest.Handle())
     http.ListenAndServe(":8787",nil)
 
 }

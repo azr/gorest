@@ -37,7 +37,7 @@ func RegisterRealmAuthorizer(realm string,auth Authorizer){
 	if authorizers ==nil{
 		authorizers = make(map[string]Authorizer,0)
 	}
-	
+
 	if _,found := authorizers[realm]; !found{
 		authorizers[realm] = auth
 	}
@@ -49,7 +49,7 @@ func GetAuthorizer(realm string)(a Authorizer){
 		authorizers = make(map[string]Authorizer,0)
 	}
 	a,_ = authorizers[realm]
-	return 
+	return
 }
 
 //This is the default and exmaple authorizer that is used to authorize requests to endpints with no security realms.

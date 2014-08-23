@@ -74,7 +74,7 @@ func optionsMixed(t *testing.T) {
 
 func getMixed(t *testing.T) {
 	//getMixed     EndPoint `method:"GET" 	path:"/bool/{Bool:bool}/mix1/{Int:int}"`
-	//*******************************	
+	//*******************************
 
 	rb, _ := NewRequestBuilder(RootPath + "paths-service/bool/true/mix1/5" + xrefStr)
 	rb.AddCookie(cook)

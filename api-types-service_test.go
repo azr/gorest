@@ -60,18 +60,18 @@ type TypesService struct {
 	postFloat   EndPoint `method:"POST" path:"/float/{Bool:bool}/{Int:int}" postdata:"float64" `
 
 	postMapInt EndPoint `
-						method:"POST" 
-						path:"/mapint/{Bool:bool}/{Int:int}" 
+						method:"POST"
+						path:"/mapint/{Bool:bool}/{Int:int}"
 						postdata:"map[string]int" `
 
 	postMapStruct EndPoint `
-						method:"POST" 
-						path:"/mapstruct/{Bool:bool}/{Int:int}" 
+						method:"POST"
+						path:"/mapstruct/{Bool:bool}/{Int:int}"
 						postdata:"map[string]User" `
 
 	postArrayStruct EndPoint `
-						method:"POST" 
-						path:"/arraystruct/{Bool:bool}/{Int:int}" 
+						method:"POST"
+						path:"/arraystruct/{Bool:bool}/{Int:int}"
 						postdata:"[]User"`
 
 	head     EndPoint `method:"HEAD" path:"/bool/{Bool:bool}/{Int:int}"`

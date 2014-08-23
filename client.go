@@ -37,7 +37,7 @@ import (
 
 var sharedClient *http.Client
 
-//Use this if you have a *http.Client instance that you specifically want to use. 
+//Use this if you have a *http.Client instance that you specifically want to use.
 //Otherwise just use NewRequestBuilder(), which uses the http.Client maintained by GoRest.
 func NewRequestBuilderFromClient(client *http.Client, url string) (*RequestBuilder, error) {
 	req, err := http.NewRequest(GET, url, nil)
@@ -49,9 +49,9 @@ func NewRequestBuilderFromClient(client *http.Client, url string) (*RequestBuild
 }
 
 //This creates a new RequestBuilder, backed by GoRest's internally managed http.Client.
-//Although http.Client is useable concurrently, an instance of RequestBuilder is not safe for this. 
-//Because of http.Client's persistent(cached TCP connections) and concurrent nature, 
-//this can be used safely multiple times from different go routines. 
+//Although http.Client is useable concurrently, an instance of RequestBuilder is not safe for this.
+//Because of http.Client's persistent(cached TCP connections) and concurrent nature,
+//this can be used safely multiple times from different go routines.
 func NewRequestBuilder(url string) (*RequestBuilder, error) {
 	if sharedClient == nil {
 		sharedClient = new(http.Client) //DefaultClient
@@ -206,6 +206,7 @@ func (this *RequestBuilder) Get(i interface{}, expecting int) (*http.Response, e
 
 	return res, errors.New(res.Status)
 }
+
 func (this *RequestBuilder) Post(i interface{}) (*http.Response, error) {
 	this._req.Method = POST
 	bb, err := InterfaceToBytes(i, this.defaultContentType)

@@ -115,6 +115,7 @@ func isLegalForRequestType(methType reflect.Type, ep endPointStruct) (cool bool)
 	numInputIgnore := 0
 	numOut := 0
 
+
 	switch ep.requestMethod {
 	case POST:
 		{
@@ -173,6 +174,7 @@ func isLegalForRequestType(methType reflect.Type, ep endPointStruct) (cool bool)
 				return
 			}
 		}
+
 		//Check the rest of input path param types
 		i := numInputIgnore
 		if ep.isVariableLength {
@@ -203,6 +205,7 @@ func isLegalForRequestType(methType reflect.Type, ep endPointStruct) (cool bool)
 			}
 			j++
 		}
+
 		//Check output param type.
 		if numOut == 1 {
 			methVal := methType.Out(0)

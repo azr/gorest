@@ -69,7 +69,7 @@ func testTypes(t *testing.T) {
 
 func getVarArgs(t *testing.T) {
 	//getVarArgs       EndPoint `method:"GET" path:"/var/{...:int}" output:"string" role:"var-user"`
-	//*******************************	
+	//*******************************
 
 	rb, _ := NewRequestBuilder(RootPath + "types-service/var/1/2/3/4/5/6/7/8" + xrefStr)
 	rb.AddCookie(cook)
@@ -80,7 +80,7 @@ func getVarArgs(t *testing.T) {
 
 func postVarArgs(t *testing.T) {
 	//postVarArgs      EndPoint `method:"POST" path:"/var/{...:int}" postdata:"string"`
-	//*******************************	
+	//*******************************
 
 	rb, _ := NewRequestBuilder(RootPath + "types-service/var/5/24567" + xrefStr)
 	rb.AddCookie(cook)
@@ -90,7 +90,7 @@ func postVarArgs(t *testing.T) {
 
 func getVarArgsString(t *testing.T) {
 	//getVarArgsString EndPoint `method:"GET" path:"/varstring/{...:string}" output:"string"`
-	//*******************************	
+	//*******************************
 
 	rb, _ := NewRequestBuilder(RootPath + "types-service/varstring/One/Two/Three" + xrefStr)
 	rb.AddCookie(cook)
@@ -101,7 +101,7 @@ func getVarArgsString(t *testing.T) {
 
 func getString(t *testing.T) {
 	//getString            EndPoint `method:"GET" path:"/string/{Bool:bool}/{Int:int}?{flow:int}&{name:string}" output:"string" role:"string-user"`
-	//*******************************	
+	//*******************************
 
 	rb, _ := NewRequestBuilder(RootPath + "types-service/string/true/5" + xrefStr + "&name=Nameed&flow=6")
 	rb.AddCookie(cook)
@@ -115,7 +115,7 @@ func getString(t *testing.T) {
 
 func getStringSimilarPath(t *testing.T) {
 	//getStringSimilarPath EndPoint `method:"GET" path:"/strin?{name:string}" output:"string"`
-	//*******************************	
+	//*******************************
 
 	rb, _ := NewRequestBuilder(RootPath + "types-service/strin" + xrefStr + "&name=Nameed")
 	rb.AddCookie(cook)
@@ -150,7 +150,7 @@ func getStringSimilarPath(t *testing.T) {
 
 func getInteger(t *testing.T) {
 	//getInteger           EndPoint `method:"GET" path:"/int/{Bool:bool}/int/yes/{Int:int}/for" output:"int"`
-	//*******************************	
+	//*******************************
 
 	inter := -2
 	rb, _ := NewRequestBuilder(RootPath + "types-service/int/true/int/yes/2/for" + xrefStr + "&name=Nameed&flow=6")
@@ -162,7 +162,7 @@ func getInteger(t *testing.T) {
 
 func getBool(t *testing.T) {
 	//getBool              EndPoint `method:"GET" path:"/bool/{Bool:bool}/{Int:int}" output:"bool"`
-	//*******************************	
+	//*******************************
 	bl := true
 	rb, _ := NewRequestBuilder(RootPath + "types-service/bool/false/2" + xrefStr)
 	rb.AddCookie(cook)
