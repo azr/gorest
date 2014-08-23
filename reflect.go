@@ -116,7 +116,16 @@ func isLegalForRequestType(methType reflect.Type, ep endPointStruct) (cool bool)
 	numOut := 0
 
 	switch ep.requestMethod {
-	case POST, PUT:
+	case POST:
+		{
+			numInputIgnore = 2 //The first param is the struct, the second the posted object
+			if ep.outputType != "" {
+				numOut = 1
+			} else {
+				numOut = 0
+			}
+		}
+	case PUT:
 		{
 			numInputIgnore = 2 //The first param is the struct, the second the posted object
 			numOut = 0

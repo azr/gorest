@@ -216,7 +216,7 @@ func (_ manager) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 
 		if state.httpCode == http.StatusOK {
 			switch ep.requestMethod {
-			case POST, PUT, DELETE, HEAD, OPTIONS:
+			case PUT, DELETE, HEAD, OPTIONS:
 				{
 					if ctx.responseCode == 0 {
 						w.WriteHeader(getDefaultResponseCode(ep.requestMethod))
@@ -226,7 +226,7 @@ func (_ manager) ServeHTTP(w http.ResponseWriter, r *http.Request) {
 						}
 					}
 				}
-			case GET:
+			case POST, GET:
 				{
 					if ctx.responseCode == 0 {
 						if !ctx.responseMimeSet {
